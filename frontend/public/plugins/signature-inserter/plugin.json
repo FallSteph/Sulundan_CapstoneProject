@@ -1,0 +1,16 @@
+{
+  "name": "Signature Inserter",
+  "guid": "asc.{6339A683-1F4B-4E7B-8B3E-7D4F7F9D5E7A}",
+  "version": "1.0.0",
+  "variations": [
+    {
+      "description": "Insert signature image into the document",
+      "url": "index.html",
+      "icons": [],
+      "isViewer": false,
+      "EditorsSupport": ["word"],
+      "initDataType": "text",
+      "initData": ""
+    }
+  ]
+}

@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 215 50% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 50% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 50% 15%;
+
+    --primary: 213 56% 24%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 25% 93%;
+    --secondary-foreground: 213 56% 24%;
+
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 20% 45%;
+
+    --accent: 40 90% 50%;
+    --accent-foreground: 215 50% 15%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 70% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 215 50% 15%;
+
+    --info: 199 89% 48%;
+    --info-foreground: 0 0% 100%;
+
+    --border: 214 20% 88%;
+    --input: 214 20% 88%;
+    --ring: 213 56% 24%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 213 56% 24%;
+    --sidebar-foreground: 210 20% 98%;
+    --sidebar-primary: 40 90% 50%;
+    --sidebar-primary-foreground: 215 50% 15%;
+    --sidebar-accent: 213 50% 30%;
+    --sidebar-accent-foreground: 210 20% 98%;
+    --sidebar-border: 213 50% 35%;
+    --sidebar-ring: 40 90% 50%;
+
+    --font-sans: 'Outfit', system-ui, sans-serif;
+
+    --shadow-sm: 0 1px 2px 0 hsl(215 50% 15% / 0.03);
+    --shadow-md: 0 4px 6px -1px hsl(215 50% 15% / 0.05), 0 2px 4px -2px hsl(215 50% 15% / 0.05);
+    --shadow-lg: 0 10px 15px -3px hsl(215 50% 15% / 0.08), 0 4px 6px -4px hsl(215 50% 15% / 0.05);
+    --shadow-xl: 0 20px 25px -5px hsl(215 50% 15% / 0.1), 0 8px 10px -6px hsl(215 50% 15% / 0.05);
+
+    --gradient-primary: linear-gradient(135deg, hsl(213 56% 24%) 0%, hsl(213 56% 35%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(40 90% 50%) 0%, hsl(35 90% 55%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(210 20% 98%) 0%, hsl(210 20% 95%) 100%);
+  }
+
+  .dark {
+    color-scheme: dark;
+    --background: 215 50% 8%;
+    --foreground: 210 20% 98%;
+
+    --card: 215 45% 12%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 215 45% 12%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 40 90% 50%;
+    --primary-foreground: 215 50% 10%;
+
+    --secondary: 215 40% 18%;
+    --secondary-foreground: 210 20% 98%;
+
+    --muted: 215 40% 15%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 213 56% 40%;
+    --accent-foreground: 210 20% 98%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 70% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 215 50% 15%;
+
+    --info: 199 89% 48%;
+    --info-foreground: 0 0% 100%;
+
+    --border: 215 40% 20%;
+    --input: 215 40% 20%;
+    --ring: 40 90% 50%;
+
+    --sidebar-background: 217 50% 7%;
+    --sidebar-foreground: 210 25% 94%;
+    --sidebar-primary: 40 90% 50%;
+    --sidebar-primary-foreground: 215 50% 10%;
+    --sidebar-accent: 217 40% 14%;
+    --sidebar-accent-foreground: 210 25% 98%;
+    --sidebar-border: 217 35% 16%;
+    --sidebar-ring: 40 90% 50%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(213 56% 35%) 0%, hsl(213 56% 45%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(215 50% 8%) 0%, hsl(215 50% 10%) 100%);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-card/80 backdrop-blur-md border border-border/50;
+  }
+
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+
+  .gradient-subtle {
+    background: var(--gradient-subtle);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-md);
+  }
+
+  .shadow-glow {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.15);
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.4s ease-out;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.3s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slideInRight {
+    from { opacity: 0; transform: translateX(10px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .hover-lift {
+    @apply transition-all duration-200;
+  }
+
+  .hover-lift:hover {
+    @apply -translate-y-0.5;
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* Custom styled scrollbar matching the sidebar theme */
+  .sidebar-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--sidebar-border) / 0.7) transparent;
+  }
+
+  .sidebar-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .sidebar-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .sidebar-scrollbar::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+  .sidebar-scrollbar::-webkit-scrollbar-thumb {
+    background: hsl(var(--sidebar-border) / 0.7);
+    border-radius: 9999px;
+    transition: background-color 0.2s ease;
+  }
+
+  .sidebar-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--sidebar-border));
+  }
+
+  .dark .sidebar-scrollbar {
+    scrollbar-color: hsl(var(--sidebar-border)) transparent;
+  }
+
+  .dark .sidebar-scrollbar::-webkit-scrollbar-thumb {
+    background: hsl(var(--sidebar-border));
+  }
+
+  .dark .sidebar-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--sidebar-accent));
+  }
+
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Dark mode sidebar enhancement: depth shadow on the right edge */
+  .dark .bg-sidebar {
+    box-shadow: 1px 0 0 0 hsl(var(--sidebar-border)),
+                4px 0 12px -2px hsl(220 50% 4% / 0.5);
+  }
+}
+
+/* Global Root Scrollbars - guarantees non-white custom scrollbars everywhere */
+*, *::before, *::after {
+  scrollbar-width: thin !important;
+  scrollbar-color: hsl(215 20% 45% / 0.35) transparent !important;
+}
+
+.dark, .dark *, html.dark, html.dark * {
+  scrollbar-color: hsl(215 35% 26%) transparent !important;
+}
+
+::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  width: 6px !important;
+  height: 6px !important;
+}
+
+::-webkit-scrollbar-track,
+*::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+::-webkit-scrollbar-corner,
+*::-webkit-scrollbar-corner {
+  background: transparent !important;
+}
+
+::-webkit-scrollbar-thumb,
+*::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--muted-foreground) / 0.35) !important;
+  border-radius: 9999px !important;
+  transition: background-color 0.2s ease !important;
+}
+
+::-webkit-scrollbar-thumb:hover,
+*::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(var(--muted-foreground) / 0.6) !important;
+}
+
+.dark ::-webkit-scrollbar-thumb,
+.dark *::-webkit-scrollbar-thumb,
+html.dark ::-webkit-scrollbar-thumb,
+html.dark *::-webkit-scrollbar-thumb {
+  background-color: hsl(215 35% 26%) !important;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover,
+.dark *::-webkit-scrollbar-thumb:hover,
+html.dark ::-webkit-scrollbar-thumb:hover,
+html.dark *::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(215 35% 42%) !important;
+}
+

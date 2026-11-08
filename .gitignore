@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+*/node_modules/
+__pycache__/
+*/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment variables & secrets
+.env
+.env.*
+!.env.example
+backend/.env
+frontend/.env
+python-service/.env
+
+# Backups & Large dumps
+backend/backups/
+*.zip
+*.tar.gz
+
+# Uploads and temporary generated files
+temp_docx/
+backend/uploads/
+backend/signatures/
+dist/
+frontend/dist/
+build/
+*.log
+
+# OS & IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

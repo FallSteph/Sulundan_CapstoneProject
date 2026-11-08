@@ -1,0 +1,16 @@
+{
+  "name": "sulundan-workspace",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "start": "concurrently -n cluster,workers,frontend -c green,yellow,blue \"npm run start:backend:cluster\" \"npm run start:workers\" \"npm run start:frontend\"",
+    "start:simple": "concurrently -n backend,frontend -c green,blue \"npm run start:backend\" \"npm run start:frontend\"",
+    "start:backend": "npm --prefix backend start",
+    "start:backend:cluster": "npm --prefix backend run start:cluster",
+    "start:workers": "npm --prefix backend run start:workers",
+    "start:frontend": "npm --prefix frontend run dev"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

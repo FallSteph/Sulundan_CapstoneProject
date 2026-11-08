@@ -1,0 +1,39 @@
+version: "3.9"
+
+services:
+  redis:
+    image: redis:7-alpine
+    container_name: syllabus-redis
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+    volumes:
+      - redis-data:/data
+    command: redis-server --appendonly yes
+
+  python-service:
+    build: ./python-service
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./python-service:/app
+      - ./backend:/backend
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+    depends_on:
+      - redis
+
+  onlyoffice:
+    image: onlyoffice/documentserver
+    container_name: onlyoffice
+    ports:
+      - "8089:80"
+    environment:
+      - JWT_ENABLED=true
+      - JWT_SECRET=N3kL9vT8rQ1sZ6wX2dF7bH4mY0pG5aK8
+    restart: unless-stopped
+
+volumes:
+  redis-data:
+
